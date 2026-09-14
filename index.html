@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Daamix — Smart Price Finder</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#07111f;color:#fff}
+header{padding:18px 7%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #1b2a40;background:#091625;position:sticky;top:0;z-index:5}
+.logo{font-size:28px;font-weight:800;letter-spacing:.5px}.logo span{color:#5eead4}
+nav a{color:#c9d5e5;text-decoration:none;margin-left:22px;font-size:14px}
+.hero{padding:72px 7% 45px;text-align:center;background:radial-gradient(circle at 50% 0,#12365c 0,#07111f 55%)}
+.badge{display:inline-block;padding:8px 14px;border:1px solid #284968;border-radius:30px;color:#8ee9dc;font-size:12px}
+h1{font-size:clamp(38px,7vw,72px);margin:18px 0 12px}.hero p{max-width:650px;margin:auto;color:#aebed1;line-height:1.6}
+.search{max-width:760px;margin:30px auto 0;display:flex;background:#fff;border-radius:16px;padding:7px;box-shadow:0 15px 50px #0008}
+.search input{flex:1;border:0;outline:0;padding:15px;font-size:16px;border-radius:12px}.search button{border:0;border-radius:12px;background:#5eead4;color:#06201e;font-weight:800;padding:0 24px;cursor:pointer}
+main{padding:35px 7%;max-width:1200px;margin:auto}.section-title{font-size:25px;margin:0 0 20px}
+.categories{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px}
+.cat{padding:18px;background:#0d1c2e;border:1px solid #1c3149;border-radius:15px;text-align:center;cursor:pointer}.cat:hover{border-color:#5eead4}
+.results{margin-top:38px}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:#0d1c2e;border:1px solid #1c3149;border-radius:18px;padding:18px}.card h3{margin:5px 0 8px}.price{font-size:25px;font-weight:800;color:#5eead4}.muted{color:#8fa2b8;font-size:13px}.btn{margin-top:14px;width:100%;padding:11px;border:1px solid #31506c;background:#13273d;color:#fff;border-radius:10px;cursor:pointer}
+.feature{margin-top:45px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}.feature div{background:#0b1929;border:1px solid #1a3047;border-radius:16px;padding:20px}.feature b{display:block;margin-bottom:7px}
+footer{margin-top:50px;padding:30px 7%;border-top:1px solid #1b2a40;color:#8498ae;text-align:center;font-size:13px}
+@media(max-width:600px){header{padding:15px 5%}nav{display:none}.hero{padding:55px 5% 35px}main{padding:30px 5%}.search button{padding:0 15px}}
+</style>
+</head>
+<body>
+<header><div class="logo">Daa<span>mix</span></div><nav><a href="#home">Home</a><a href="#categories">Categories</a><a href="#about">About</a></nav></header>
+
+<section class="hero" id="home">
+<div class="badge">SMART PRICE DISCOVERY</div>
+<h1>Find the right price. <span style="color:#5eead4">Fast.</span></h1>
+<p>Daamix helps you discover and compare product prices. Search by product name or use the categories below.</p>
+<div class="search"><input id="searchInput" placeholder="Search products e.g. Samsung TV, AC, phone..." onkeydown="if(event.key==='Enter')searchProduct()"><button onclick="searchProduct()">Search</button></div>
+</section>
+
+<main>
+<section id="categories">
+<h2 class="section-title">Popular Categories</h2>
+<div class="categories">
+<div class="cat" onclick="setSearch('Mobile Phones')">📱<br>Mobiles</div>
+<div class="cat" onclick="setSearch('TV')">📺<br>TV</div>
+<div class="cat" onclick="setSearch('AC')">❄️<br>AC</div>
+<div class="cat" onclick="setSearch('Refrigerator')">🧊<br>Refrigerator</div>
+<div class="cat" onclick="setSearch('Laptop')">💻<br>Laptops</div>
+<div class="cat" onclick="setSearch('Washing Machine')">🧺<br>Washing Machine</div>
+</div>
+</section>
+
+<section class="results">
+<h2 class="section-title">Example Price Results</h2>
+<div class="cards" id="cards">
+<div class="card"><div class="muted">Mobile</div><h3>Smartphone</h3><div class="price">₹12,999</div><div class="muted">Example price • Compare before buying</div><button class="btn" onclick="alert('Daamix comparison feature is ready for integration with live stores.')">Compare</button></div>
+<div class="card"><div class="muted">TV</div><h3>43-inch Smart TV</h3><div class="price">₹24,990</div><div class="muted">Example price • Compare before buying</div><button class="btn" onclick="alert('Daamix comparison feature is ready for integration with live stores.')">Compare</button></div>
+<div class="card"><div class="muted">AC</div><h3>1.5 Ton Inverter AC</h3><div class="price">₹31,490</div><div class="muted">Example price • Compare before buying</div><button class="btn" onclick="alert('Daamix comparison feature is ready for integration with live stores.')">Compare</button></div>
+</div>
+</section>
+
+<section class="feature" id="about">
+<div><b>🔎 Search</b><span class="muted">Find products quickly by name or category.</span></div>
+<div><b>📊 Compare</b><span class="muted">Designed to compare prices across sellers.</span></div>
+<div><b>📍 Nearby</b><span class="muted">Future-ready for nearby shop and location results.</span></div>
+<div><b>📷 Photo Search</b><span class="muted">The interface is ready for a future image-based product search.</span></div>
+</section>
+</main>
+
+<footer>© 2026 Daamix • Smart Price Finder<br><span>Demo website — live store/API data can be connected later.</span></footer>
+
+<script>
+const demo=[
+['Mobile','Smartphone','₹12,999'],['TV','43-inch Smart TV','₹24,990'],['AC','1.5 Ton Inverter AC','₹31,490'],
+['Laptop','Everyday Laptop','₹39,990'],['Refrigerator','Double Door Refrigerator','₹28,990'],['Washing Machine','Fully Automatic Washing Machine','₹17,490']
+];
+function setSearch(v){document.getElementById('searchInput').value=v;searchProduct()}
+function searchProduct(){
+ const q=document.getElementById('searchInput').value.trim().toLowerCase();
+ const matches=q?demo.filter(x=>x.join(' ').toLowerCase().includes(q)):demo;
+ const cards=document.getElementById('cards');
+ cards.innerHTML=matches.length?matches.map(x=>`<div class="card"><div class="muted">${x[0]}</div><h3>${x[1]}</h3><div class="price">${x[2]}</div><div class="muted">Demo price • Connect live data for real-time results</div><button class="btn" onclick="alert('Comparison selected for ${x[1]}')">Compare</button></div>`).join(''):`<div class="card"><h3>No demo result found</h3><div class="muted">Try Mobile, TV, AC, Laptop, Refrigerator or Washing Machine.</div></div>`;
+}
+</script>
+</body>
+</html>
